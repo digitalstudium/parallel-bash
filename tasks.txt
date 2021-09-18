@@ -1,0 +1,3 @@
+sudo apt update
+sudo apt install -y inetutils-traceroute
+echo something > ~/filename

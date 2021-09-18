@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function parallel_remote_execution {
+ssh -q "$1" << EOF
+  /bin/bash -c "$2"
+EOF
+}
+
+for host in $(cat hosts.txt)
+do
+  parallel_remote_execution "$host" "$(cat tasks.txt)" &
+done
